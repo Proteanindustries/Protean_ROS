@@ -8,7 +8,7 @@ def calc_speed(rpm, publisher):
     speed = rpm.data * 2 * 3.14159 / 60 * wheel_radius
     publisher.publish(speed)
     
-def create_subscriber():
+def create_subscriber(pub):
     rospy.Subscriber("rpm", Float32, calc_speed, (pub))
     
 def speed_pub():
