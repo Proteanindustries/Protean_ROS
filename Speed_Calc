@@ -1,9 +1,10 @@
 import rospy 
 from std_msgs.msg import Float32
 
-wheel_radius = 12.5/100 #wheel radius in meters 
+wheel_radius = rospy.get_param("/wheel_radius") #wheel radius in meters 
 
 def calc_speed(rpm, publisher):
+    wheel_radius = rospy.get_param("/wheel_radius")
     speed = rpm.data * 2 * 3.14159 / 60 * wheel_radius
     publisher.publish(speed)
     
