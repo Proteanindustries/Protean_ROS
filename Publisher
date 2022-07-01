@@ -8,12 +8,13 @@ def hello_world_pub():
     i = 0
     rate = rospy.Rate(5)
     while not rospy.is_shutdown():
-      pub.publish("Hello_World " +str(i))
+      pub.publish("Hello World " + str(i))
       i += 1
       rate.sleep()
      
-if __name__ == '__main__.py':
+if __name__ == '__main__':
     try:
       hello_world_pub()
+      
     except rospy.ROSInterruptException:
       pass
