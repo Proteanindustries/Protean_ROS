@@ -13,7 +13,7 @@ def configure_request(angle):
         service_proxy = rospy.ServiceProxy("turn_camera", TurnCamera)
         resp_msg = service_proxy(angle)
 
-        image_msg = resp_msg.images
+        image_msg = resp_msg.image
 
         image = CvBridge().imgmsg_to_cv2(image_msg, desired_encoding="passthrough")
         cv2.imshow("Turn Camera Image", image)
@@ -32,6 +32,7 @@ if __name__ == '__main__':
         while user_input != "q":
             try:
                 configure_request(float(user_input))
+                user_input = input("\nEnter an angle in degrees to move camera: ")
             except:
                 print("Error trying to process request")
 
