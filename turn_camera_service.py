@@ -14,7 +14,7 @@ class TurnCameraClass:
 
     def read_in_image_by_file_name(self, file_name):
         dir_name = os.path.dirname(__file__)
-        file_location = dir_name + "/images/" + file_name
+        file_location = dir_name + "/image/" + file_name
         image = cv2.imread(file_location)
         return image
 
